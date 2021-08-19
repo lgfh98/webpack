@@ -1,3 +1,3 @@
 # js-portfolio# webpack
 
-primeros pasos con webpack 💙
+práctica con webpack
