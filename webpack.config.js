@@ -5,6 +5,7 @@ const CssMinimizerPLugin = require("css-minimizer-webpack-plugin");
 const TerserMinimizerPlugin = require("terser-webpack-plugin");
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const DotEnv = require("dotenv-webpack");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -13,6 +14,7 @@ module.exports = {
     filename: "assets/[name][contenthash].js",
     assetModuleFilename: "assets/[hash][ext][query]",
   },
+  mode: "production",
   resolve: {
     extensions: [".js"],
     alias: {
@@ -56,6 +58,7 @@ module.exports = {
       filename: "assets/[name].[contenthash].css",
     }),
     new DotEnv(),
+    new CleanWebpackPlugin(),
   ],
   optimization: {
     minimize: true,
