@@ -2,7 +2,6 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const DotEnv = require("dotenv-webpack");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -55,6 +54,14 @@ module.exports = {
       filename: "assets/[name].[contenthash].css",
     }),
     new DotEnv(),
-    new CleanWebpackPlugin(),
   ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    compress: true,
+    historyApiFallback: true,
+    port: 3000,
+    open: true,
+  },
 };
