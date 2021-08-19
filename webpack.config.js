@@ -14,6 +14,13 @@ module.exports = {
   },
   resolve: {
     extensions: [".js"],
+    alias: {
+      "@utils": path.resolve(__dirname, "src/utils"),
+      "@fonts": path.resolve(__dirname, "src/assets/fonts"),
+      "@templates": path.resolve(__dirname, "src/templates"),
+      "@images": path.resolve(__dirname, "src/assets/images"),
+      "@styles": path.resolve(__dirname, "src/styles"),
+    },
   },
   module: {
     rules: [
